@@ -1,5 +1,6 @@
 import { Text, View, TextInput, TouchableOpacity } from "react-native"
 import { styles } from "./styles"
+import Tollbar from "../../componets/toolbar"
 
 export function Home() {
 
@@ -20,7 +21,7 @@ export function Home() {
 
             <View style={styles.form}>
                 <TextInput
-                    style={styles.inpunt}
+                    style={styles.input}
                     placeholder="Nome do participantes"
                     placeholderTextColor='#6B6B6B'
                 //keyboardType = seleionar o tipo de teclado exemplo o numerico //
@@ -34,7 +35,9 @@ export function Home() {
                 </TouchableOpacity>
 
             </View>
-
+            <View style={styles.toolbar} >
+                <Tollbar/>
+            </View>
         </View>
 
     )
