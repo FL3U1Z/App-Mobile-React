@@ -1,30 +1,54 @@
 import { Text, View, FlatList, Alert, TouchableOpacity, ScrollView } from "react-native"
 import { styles } from "./styles"
-import { useState } from "react"
-import IoniconsIcon from "react-native-vector-icons/Ionicons";
-import FeatherIcon from "react-native-vector-icons/Feather";
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Tollbar from "../../componets/toolbar"
-import { Expenses } from "../../componets/expenses";
-import { ReceiveBills } from "../../componets/receiveBills";
-import EntypoIcon from "react-native-vector-icons/Entypo";
 import { Image } from "expo-image";
-import { CardView } from "../../componets/cardView/index"
+import { useNavigation } from "@react-navigation/native";
+interface HeadPagesProps {
+    currentPage: "Entradas e saídas" | "Lançamentos" | "Relatórios" | "Contas a Pagar" | "Contas a Receber" | "Cartões de Crédito" | "Gastos  Cartão" | "default"; // Adicione mais páginas conforme necessário
+}
 
-export function HeadPages() {
+export function HeadPages({ currentPage }: HeadPagesProps) {
+    const navigation = useNavigation();
+
+    const getPageTitle = () => {
+        switch (currentPage) {
+            case "Entradas e saídas":
+                return "Entradas e saídas";
+            case "Lançamentos":
+                return "Lançamentos";
+            case "Relatórios":
+                return "Relatórios";
+            case "Contas a Pagar":
+                return "Contas a Pagar";
+            case "Contas a Receber":
+                return "Contas a Receber";
+            case "Cartões de Crédito":
+                return "Cartões de Crédito";
+            case "Gastos  Cartão":
+                return "Gastos  Cartão";
+            default:
+                return "";
+        }
+    };
+    const handleBackPress = () => {
+        navigation.goBack()
+    };
     return (
         <>
             <View style={styles.container}>
                 <View style={styles.rowContainer}>
-                    <Icon name="chevron-left" style={styles.arrowIconLeft} />
+
+                    <TouchableOpacity onPress={handleBackPress}>
+                        <Icon name="chevron-left" style={styles.arrowIconLeft} />
+                    </TouchableOpacity>
                     <Text style={styles.textName}
-                    >Entradas e saídas
+                    >{getPageTitle()}
                     </Text>
                     <Image
-                            style={styles.icon}
-                            contentFit="cover"
-                            source={require("../../../assets/icon.png")}
-                        />
+                        style={styles.icon}
+                        contentFit="cover"
+                        source={require("../../../assets/icon.png")}
+                    />
                 </View>
             </View>
         </>

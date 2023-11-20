@@ -222,5 +222,11 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  seePlus: {
+    color: "#695CFE",
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginHorizontal:120
+  },
 
 });

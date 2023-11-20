@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        paddingTop: 34,
+        paddingTop: 24,
         backgroundColor: "#fff"
     },
     arrowIconLeft: {
