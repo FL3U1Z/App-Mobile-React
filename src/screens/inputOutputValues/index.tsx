@@ -4,7 +4,6 @@ import { useState } from "react"
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Tollbar from "../../componets/toolbar"
 import { Expenses } from "../../componets/expenses";
 import { ReceiveBills } from "../../componets/receiveBills";
 import EntypoIcon from "react-native-vector-icons/Entypo";
@@ -22,7 +21,7 @@ export function InputOutput() {
     const data = {
         labels: [''],
         legend: ['Saídas', 'Entradas'],
-        data: [[80.74, 20.26]],
+        data: [[60.00, 40.00]],
         barColors: ['#1D9000', '#FF6262',],
     };
     const chartConfig = {

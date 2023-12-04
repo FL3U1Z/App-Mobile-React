@@ -5,6 +5,11 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#E6E6E6",
     padding: 24,
+  }, 
+  H1: {
+    color: "#4F4E4E",
+    fontSize: 20,
+    fontWeight: "bold",
   },
   container2: {
     paddingLeft: 20,
@@ -53,7 +58,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   speceRowBills: {
-    marginTop:16,
+    marginTop: 16,
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -75,7 +80,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
   },
   balanceValue: {
-    marginTop:10,
+    marginTop: 10,
     color: "#00875F",
     fontSize: 20,
     fontWeight: "500",
@@ -120,7 +125,7 @@ export const styles = StyleSheet.create({
     paddingTop: 12,
     width: 428,
     height: 170,
-    backgroundColor: '#7300ba',
+    backgroundColor: '#695CFE',
     marginLeft: '-10%', // Metade da largura negativa para centralizar
     //marginRight: '-10%', // Metade da largura negativa para centralizar
     paddingLeft: 20,
@@ -172,7 +177,7 @@ export const styles = StyleSheet.create({
     textAlign: "center"
   },
   boxMoney: {
-    backgroundColor: "#7300ba",
+    backgroundColor: "#695CFE",
     borderTopLeftRadius: 32,
     borderBottomLeftRadius: 32,
     width: 9,
@@ -209,7 +214,7 @@ export const styles = StyleSheet.create({
   },
   iconBills: {
     width: 30, // Defina o tamanho da imagem aqui
-    height:30, // Defina o tamanho da imagem aqui
+    height: 30, // Defina o tamanho da imagem aqui
   },
   billsMonth: {
     marginLeft: 12,
@@ -226,7 +231,7 @@ export const styles = StyleSheet.create({
     color: "#695CFE",
     fontSize: 16,
     fontWeight: 'bold',
-    marginHorizontal:120
+    marginHorizontal: 120
   },
 
 });

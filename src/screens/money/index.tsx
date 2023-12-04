@@ -4,7 +4,6 @@ import { useState } from "react"
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Tollbar from "../../componets/toolbar"
 import { Expenses } from "../../componets/expenses";
 import { ReceiveBills } from "../../componets/receiveBills";
 import EntypoIcon from "react-native-vector-icons/Entypo";
@@ -14,12 +13,8 @@ import { useNavigation } from "@react-navigation/native";
 
 export function Money() {
     const navigation = useNavigation();
-    const [expenses, setExpenses] = useState<string[]>(["Mãe", "Salario", "Vendas"])
-    const [expensesName, setExpensesName] = useState("")
-    const [receiveBills, setreceiveBills] = useState<string[]>(["Aliexpress", "Amazon", "Roupas"])
-    const [receiveBillsName, setReceiveBillsName] = useState("")
     const [showBalance, setShowBalance] = useState(true);
-    const balanceValue = showBalance ? 'R$1700' : '-----';
+    const balanceValue = showBalance ? 'R$2703' : '-----';
     const [revenue, setRevenue] = useState('R$1700');
     const [expense, setExpense] = useState('R$1700');
 
@@ -38,6 +33,15 @@ export function Money() {
     const handleGoRevenue = () => {
         navigation.navigate("revenue")
     };
+    const handleGoCards = () => {
+        navigation.navigate("cards")
+    };
+    const handleGoAddRevenue = () => {
+        navigation.navigate("addRevenue")
+    };
+    const handleGoAddBills = () => {
+        navigation.navigate("addBills")
+    };
 
     return (
         <>
@@ -52,7 +56,7 @@ export function Money() {
                             <Text style={styles.wecolmeName}
                             >Olá
                             </Text>
-                            <Text style={styles.userName}> Eduardo!</Text>
+                            <Text style={styles.userName}> Flávio!</Text>
                         </View>
                     </View>
 
@@ -77,7 +81,14 @@ export function Money() {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.separator2}></View>
-                        <CardView />
+
+                        <TouchableOpacity onPress={handleGoCards}>
+                            <View style={styles.speceRow}>
+                                <Text style={styles.currentBalance}>Cartões de crédito</Text>
+                                <Icon name="chevron-right" style={styles.arrowIcon} />
+                            </View>
+                        </TouchableOpacity>
+                        <CardView orientation="horizontal" />
                         <View style={styles.separator2}></View>
                         <View style={styles.container3}>
                             <View style={styles.speceRow}>
@@ -93,7 +104,11 @@ export function Money() {
                             </View>
                             <View style={styles.speceRow}>
                                 <Text style={styles.balanceValue}>{revenue}</Text>
+                                <TouchableOpacity
+                                onPress={handleGoAddRevenue}
+                                >
                                 <EntypoIcon name="plus" style={styles.balanceValue} />
+                                </TouchableOpacity>
                             </View>
                             <View style={styles.notSpeceRow}>
                                 <Text style={styles.values}>Despesa Mensal</Text>
@@ -105,7 +120,12 @@ export function Money() {
                             </View>
                             <View style={styles.speceRow}>
                                 <Text style={styles.expenseValue}>{expense}</Text>
+                                
+                                <TouchableOpacity
+                                onPress={handleGoAddBills}
+                                >
                                 <EntypoIcon name="plus" style={styles.expenseValue} />
+                                </TouchableOpacity>
                             </View>
                         </View>
 
@@ -241,10 +261,6 @@ export function Money() {
                     </View>
                 </View>
             </ScrollView >
-
-            <View style={styles.toolbar} >
-                <Tollbar />
-            </View>
         </>
     )
 } 

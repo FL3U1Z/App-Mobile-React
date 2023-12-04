@@ -4,7 +4,6 @@ import { useState } from "react"
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Tollbar from "../../componets/toolbar"
 import { Expenses } from "../../componets/expenses";
 import { ReceiveBills } from "../../componets/receiveBills";
 import EntypoIcon from "react-native-vector-icons/Entypo";

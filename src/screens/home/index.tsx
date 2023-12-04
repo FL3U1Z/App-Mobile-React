@@ -1,6 +1,5 @@
 import { Text, View, TextInput, TouchableOpacity } from "react-native"
 import { styles } from "./styles"
-import Tollbar from "../../componets/toolbar"
 
 export function Home() {
 

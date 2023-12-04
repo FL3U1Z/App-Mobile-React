@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
   notSpeceRowM: {
     marginTop: 16,
     flexDirection: "row",
-    marginRight: 100,
+    marginRight: 110,
     marginLeft:10
   },
   notSpeceRow: {
@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
   },
   circleBackground: {
     borderRadius: 25, // metade do valor de width ou height
-    backgroundColor: "#6F0096",
+    backgroundColor: "#695CFE",
     width: 50,
     height: 50,
     justifyContent: 'center',

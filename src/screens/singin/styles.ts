@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     height: 45,
     backgroundColor: "#302B47",
     borderRadius: 17,
-    marginTop: 60,
+    marginTop: 10,
     marginBottom: 120,
     padding: 5
   },
@@ -39,7 +39,6 @@ export const styles = StyleSheet.create({
     width: 250,
     height:250,
     marginTop: 84,
-    marginBottom: 20,
   },
   direitos: {
     fontSize: 12,

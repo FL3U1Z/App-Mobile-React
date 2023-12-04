@@ -5,32 +5,39 @@ import { useNavigation } from "@react-navigation/native";
 import { api } from "../../lib/axios";
 import React, { useState } from "react";
 
-
-export function Login() {
-  const navigation = useNavigation();
+export function Singin() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const handleLogin = async () => {
+  const [passwordC, setPasswordC] = useState('');
+
+  const navigation = useNavigation();
+
+  const handleGoLoginPage = () => {
+    navigation.navigate("login")
+  };
+  const handleRegister = async () => {
     try {
-      const response = await api.post('/auth/signIn', { email, password });
-      console.log(response)
-      if (response.data.authenticated) {
+      if (password !== passwordC) {
+        alert('As senhas não coincidem.');
+        return;
+      }
+      const response = await api.post('auth/cadastro', { email, name, password });
+      console.log(response);
+      if (response) {
+        alert('Cadastro bem-sucedido!');
         navigation.navigate("home");
       } else {
-        // Trate o caso em que a autenticação falhou
-        alert('Login falhou. Verifique suas credenciais.');
+        // Trate o caso em que o cadastro falhou (por exemplo, e-mail já registrado)
+        alert('Falha no cadastro. Verifique suas informações.');
       }
     } catch (error) {
-      console.error('Erro ao tentar fazer login:', error);
+      console.error('Erro ao tentar cadastrar:', error);
     }
   };
 
-  const handleGoSiginPage = () => {
-    navigation.navigate("singin")
-  };
-  const handleGoHomePage = () => {
-    navigation.navigate("home")
-  };
+
+
   return (
 
     <View style={styles.container}>
@@ -43,15 +50,23 @@ export function Login() {
       </View>
       <View>
         <Text style={styles.welcome}
-        >Faça seu Login!
+        >Faça seu cadastro!
         </Text>
       </View>
       <View style={styles.form}>
         <TextInput
           style={styles.inpunt}
+          placeholder="Nome"
+          placeholderTextColor='#6B6B6B'
+          onChangeText={(text) => setName(text)}
+          value={name}
+        />
+        <TextInput
+          style={styles.inpunt}
           placeholder="E-mail"
           placeholderTextColor='#6B6B6B'
           onChangeText={(text) => setEmail(text)}
+          value={email}
         />
         <TextInput
           style={styles.inpunt}
@@ -59,22 +74,31 @@ export function Login() {
           placeholderTextColor='#6B6B6B'
           secureTextEntry={true}
           onChangeText={(text) => setPassword(text)}
+          value={password}
+        />
+        <TextInput
+          style={styles.inpunt}
+          placeholder="Confirmação de senha"
+          placeholderTextColor='#6B6B6B'
+          secureTextEntry={true}
+          onChangeText={(text) => setPasswordC(text)}
+          value={passwordC}
         />
       </View>
       <TouchableOpacity
-        onPress={handleGoSiginPage}
+        onPress={handleGoLoginPage}
       >
         <View style={styles.speceRow}>
 
           <Text style={styles.textMid}
-          >Cadastre-se
+          >Faça seu login!
           </Text>
           <Icon name="chevron-right" style={styles.arrowIcon} />
         </View>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={handleLogin}
+        onPress={handleRegister}
       >
         <Text style={styles.login}>Entrar</Text>
       </TouchableOpacity>
